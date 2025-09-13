@@ -15,7 +15,7 @@ After completing this workshop, consider:
 ## Learning Resources
 
 - [Docker Documentation](https://docs.docker.com/)
-- [Google Agent Development Kit](https://github.com/google-ai-platform/agent-development-kit)
+- [Google Agent Development Kit](https://google.github.io/adk-docs/)
 - [Cerebras AI Documentation](https://docs.cerebras.ai/)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 

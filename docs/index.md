@@ -49,3 +49,13 @@ Throughout this workshop, you'll work with practical Node.js development assista
 ## GitHub Sources
 
 The source code for this workshop is available at [https://github.com/dockersamples/docker-cerebras-demo](https://github.com/dockersamples/docker-cerebras-demo)
+
+
+## Run this workshop in a Docker container
+
+Clone [this](https://github.com/dockersamples/docker-cerebras-workshop) repo and run the following command: 
+
+```
+docker build -t devduck .
+docker run -p 8000:8000 devduck
+```
