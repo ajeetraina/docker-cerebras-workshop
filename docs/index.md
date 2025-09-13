@@ -57,5 +57,7 @@ Clone [this](https://github.com/dockersamples/docker-cerebras-workshop) repo and
 
 ```
 docker build -t devduck .
-docker run -p 8000:8000 devduck
+docker run -p 8002:8000 devduck
 ```
+
+Now you can access the workshop at [http://localhost:8002](http://0.0.0.0:8002)
