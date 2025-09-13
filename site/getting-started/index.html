@@ -738,6 +738,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#model-too-big" class="md-nav__link">
+    <span class="md-ellipsis">
+      🤖 Model Too Big
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#cerebras-api-issues" class="md-nav__link">
     <span class="md-ellipsis">
       🚫 Cerebras API Issues
@@ -1108,13 +1117,29 @@
 </span></code></pre></div>
 <h3 id="repository-structure">📁 Repository Structure<a class="headerlink" href="#repository-structure" title="Permanent link">&para;</a></h3>
 <p>You should see files similar to:</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>├── docker-compose.yml     # Main orchestration file
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── .env.sample            # Environment template
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── README.md              # Project documentation
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── devduck/              # DevDuck agent code
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── local-agent/          # Local agent code
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── cerebras-agent/       # Cerebras agent code
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>└── web-interface/        # FastAPI web interface
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>.
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── LICENSE.md
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── README.md
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── agents
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│   ├── Dockerfile
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│   ├── devduck
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│   │   ├── __init__.py
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│   │   ├── agent.py
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│   │   └── sub_agents
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│   │       ├── __init__.py
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│   │       ├── cerebras
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│   │       │   ├── __init__.py
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│   │       │   ├── agent.py
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│   │       │   └── tools.py
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│   │       └── localagent
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│   │           ├── __init__.py
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>│   │           └── agent.py
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│   ├── main.py
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│   └── requirements.txt
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>├── compose.yml
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>├── mcp-gateway-catalog.yaml
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>├── pyproject.toml
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>└── uv.lock
 </span></code></pre></div>
 <h2 id="step-2-environment-configuration">Step 2: Environment Configuration<a class="headerlink" href="#step-2-environment-configuration" title="Permanent link">&para;</a></h2>
 <p>Configure your environment variables by creating a <code>.env</code> file from the provided template:</p>
@@ -1179,11 +1204,9 @@
 </span></code></pre></div>
 <h3 id="expected-output">✅ Expected Output<a class="headerlink" href="#expected-output" title="Permanent link">&para;</a></h3>
 <p>A successful deployment should show all services as "Up":</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>NAME                          STATUS
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker-cerebras-demo-devduck-1      Up
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docker-cerebras-demo-local-agent-1  Up  
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>docker-cerebras-demo-cerebras-1     Up
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>docker-cerebras-demo-web-1          Up
+<div class="language-text highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>NAME                                   IMAGE                                COMMAND                  SERVICE         CREATED         STATUS         PORTS
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>docker-cerebras-demo-devduck-agent-1   docker-cerebras-demo-devduck-agent   &quot;sh -c &#39;uvicorn main…&quot;   devduck-agent   3 minutes ago   Up 3 minutes   0.0.0.0:8000-&gt;8000/tcp, [::]:8000-&gt;8000/tcp
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>docker-cerebras-demo-mcp-gateway-1     docker/mcp-gateway:latest            &quot;/docker-mcp gateway…&quot;   mcp-gateway     3 minutes ago   Up 3 minutes
 </span></code></pre></div>
 <h3 id="network-and-resource-check">Network and Resource Check<a class="headerlink" href="#network-and-resource-check" title="Permanent link">&para;</a></h3>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Check resource usage</span>
@@ -1199,13 +1222,13 @@
 <p>Once all services are running successfully, you can access the web interface:</p>
 <div class="admonition success">
 <p class="admonition-title">Web Interface Access</p>
-<p><strong>Primary URL</strong>: <a href="http://0.0.0.0:8000">http://0.0.0.0:8000</a></p>
+<p><strong>Primary URL</strong>: <a href="http://0.0.0.0:8000/dev-ui/?app=devduck">http://0.0.0.0:8000</a></p>
 <p><strong>Alternative URL</strong>: <a href="http://localhost:8000">http://localhost:8000</a></p>
 </div>
 <h3 id="first-access-verification">First Access Verification<a class="headerlink" href="#first-access-verification" title="Permanent link">&para;</a></h3>
 <ol>
 <li>Open your web browser</li>
-<li>Navigate to <code>http://0.0.0.0:8000</code></li>
+<li>Navigate to <code>http://0.0.0.0:8000/dev-ui/?app=devduck</code></li>
 <li>You should see the multi-agent interface</li>
 <li>Try typing a simple message like "Hello"</li>
 <li>Verify that DevDuck responds appropriately</li>
@@ -1229,6 +1252,11 @@
 </span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="c1"># Or modify docker-compose.yml to use a different port</span>
 </span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="c1"># Change &quot;8000:8000&quot; to &quot;8001:8000&quot; in the ports section</span>
 </span></code></pre></div>
+<h3 id="model-too-big">🤖 Model Too Big<a class="headerlink" href="#model-too-big" title="Permanent link">&para;</a></h3>
+<p>In case you encounter the following error message stating:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>{&quot;error&quot;: &quot;litellm.InternalServerError: InternalServerError: OpenAIException - unable to load runner: model too big&quot;}
+</span></code></pre></div>
+<p>It's recommended to use lightweight model like Llama 3.2 based on your system configuration.</p>
 <h3 id="cerebras-api-issues">🚫 Cerebras API Issues<a class="headerlink" href="#cerebras-api-issues" title="Permanent link">&para;</a></h3>
 <p>If Cerebras agent fails to start:</p>
 <ul>

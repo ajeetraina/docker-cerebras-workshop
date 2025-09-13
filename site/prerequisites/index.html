@@ -501,6 +501,15 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#enable-docker-model-runner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Docker Model Runner
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#api-requirements" class="md-nav__link">
     <span class="md-ellipsis">
       API Requirements
@@ -1053,6 +1062,12 @@
 </div>
 </div>
 </div>
+<h2 id="enable-docker-model-runner">Enable Docker Model Runner<a class="headerlink" href="#enable-docker-model-runner" title="Permanent link">&para;</a></h2>
+<p>Ensure that you've enabled Docker Model Runner using Docker Dashboard &gt; Settings &gt; AI &gt; Model Runner.
+Download the following models beforehand.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker model pull unsloth/qwen3-gguf:4B-UD-Q4_K_XL
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker model pull hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m
+</span></code></pre></div>
 <h2 id="api-requirements">API Requirements<a class="headerlink" href="#api-requirements" title="Permanent link">&para;</a></h2>
 <h3 id="cerebras-api-access">🧠 Cerebras API Access<a class="headerlink" href="#cerebras-api-access" title="Permanent link">&para;</a></h3>
 <p>You'll need a Cerebras API key to access advanced AI capabilities:</p>
@@ -1092,17 +1107,17 @@
 </ul>
 <h2 id="quick-verification-commands">Quick Verification Commands<a class="headerlink" href="#quick-verification-commands" title="Permanent link">&para;</a></h2>
 <p>Run these commands to verify your setup:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Check Docker version</span>
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker<span class="w"> </span>--version
-</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
-</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Check Docker Compose version  </span>
-</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
-</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
-</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="c1"># Test Docker functionality</span>
-</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
-</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>
-</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="c1"># Check available system resources</span>
-</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>docker<span class="w"> </span>system<span class="w"> </span>df
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check Docker version</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>--version
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check Docker Compose version  </span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Test Docker functionality</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>docker<span class="w"> </span>run<span class="w"> </span>hello-world
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="c1"># Check available system resources</span>
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>docker<span class="w"> </span>system<span class="w"> </span>df
 </span></code></pre></div>
 <div class="admonition success">
 <p class="admonition-title">All Set?</p>

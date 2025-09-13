@@ -25,13 +25,29 @@ ls -la
 You should see files similar to:
 
 ```
-├── docker-compose.yml     # Main orchestration file
-├── .env.sample            # Environment template
-├── README.md              # Project documentation
-├── devduck/              # DevDuck agent code
-├── local-agent/          # Local agent code
-├── cerebras-agent/       # Cerebras agent code
-└── web-interface/        # FastAPI web interface
+.
+├── LICENSE.md
+├── README.md
+├── agents
+│   ├── Dockerfile
+│   ├── devduck
+│   │   ├── __init__.py
+│   │   ├── agent.py
+│   │   └── sub_agents
+│   │       ├── __init__.py
+│   │       ├── cerebras
+│   │       │   ├── __init__.py
+│   │       │   ├── agent.py
+│   │       │   └── tools.py
+│   │       └── localagent
+│   │           ├── __init__.py
+│   │           └── agent.py
+│   ├── main.py
+│   └── requirements.txt
+├── compose.yml
+├── mcp-gateway-catalog.yaml
+├── pyproject.toml
+└── uv.lock
 ```
 
 ## Step 2: Environment Configuration
@@ -117,11 +133,9 @@ docker compose logs cerebras-agent
 A successful deployment should show all services as "Up":
 
 ```
-NAME                          STATUS
-docker-cerebras-demo-devduck-1      Up
-docker-cerebras-demo-local-agent-1  Up  
-docker-cerebras-demo-cerebras-1     Up
-docker-cerebras-demo-web-1          Up
+NAME                                   IMAGE                                COMMAND                  SERVICE         CREATED         STATUS         PORTS
+docker-cerebras-demo-devduck-agent-1   docker-cerebras-demo-devduck-agent   "sh -c 'uvicorn main…"   devduck-agent   3 minutes ago   Up 3 minutes   0.0.0.0:8000->8000/tcp, [::]:8000->8000/tcp
+docker-cerebras-demo-mcp-gateway-1     docker/mcp-gateway:latest            "/docker-mcp gateway…"   mcp-gateway     3 minutes ago   Up 3 minutes
 ```
 
 ### Network and Resource Check
@@ -142,14 +156,14 @@ docker system df
 Once all services are running successfully, you can access the web interface:
 
 !!! success "Web Interface Access"
-    **Primary URL**: [http://0.0.0.0:8000](http://0.0.0.0:8000)
+    **Primary URL**: [http://0.0.0.0:8000](http://0.0.0.0:8000/dev-ui/?app=devduck)
     
     **Alternative URL**: [http://localhost:8000](http://localhost:8000)
 
 ### First Access Verification
 
 1. Open your web browser
-2. Navigate to `http://0.0.0.0:8000`
+2. Navigate to `http://0.0.0.0:8000/dev-ui/?app=devduck`
 3. You should see the multi-agent interface
 4. Try typing a simple message like "Hello"
 5. Verify that DevDuck responds appropriately
@@ -179,6 +193,18 @@ lsof -i :8000
 # Or modify docker-compose.yml to use a different port
 # Change "8000:8000" to "8001:8000" in the ports section
 ```
+
+
+### 🤖 Model Too Big
+
+In case you encounter the following error message stating:
+
+```
+{"error": "litellm.InternalServerError: InternalServerError: OpenAIException - unable to load runner: model too big"}
+```
+
+It's recommended to use lightweight model like Llama 3.2 based on your system configuration.
+
 
 ### 🚫 Cerebras API Issues
 

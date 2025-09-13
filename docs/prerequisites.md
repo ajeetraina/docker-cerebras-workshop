@@ -44,6 +44,19 @@ Before starting this workshop, ensure you have the following requirements met. T
     - Optimized for M1/M2/M3 chips
     - No additional driver setup required
 
+
+## Enable Docker Model Runner
+
+Ensure that you've enabled Docker Model Runner using Docker Dashboard > Settings > AI > Model Runner.
+Download the following models beforehand.
+
+```
+docker model pull unsloth/qwen3-gguf:4B-UD-Q4_K_XL
+docker model pull hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m
+```
+
+
+
 ## API Requirements
 
 ### 🧠 Cerebras API Access
