@@ -121,11 +121,6 @@ docker compose ps
 
 # View logs for all services
 docker compose logs
-
-# View logs for a specific service
-docker compose logs devduck
-docker compose logs local-agent
-docker compose logs cerebras-agent
 ```
 
 ### ✅ Expected Output
