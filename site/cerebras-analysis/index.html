@@ -898,21 +898,43 @@
 <p>Leverage Cerebras for advanced code analysis and complex problem-solving.</p>
 <h2 id="exercise-advanced-analysis">Exercise: Advanced Analysis<a class="headerlink" href="#exercise-advanced-analysis" title="Permanent link">&para;</a></h2>
 <p>Use Cerebras for complex code analysis:</p>
-<ol>
+<ul>
 <li>After generating code with Local Agent, request analysis:</li>
-</ol>
+</ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Cerebras can you analyse and comment this code
 </span></code></pre></div>
-<ol>
+<ul>
 <li>Request test generation:</li>
-</ol>
+</ul>
 <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>Can you generate the tests
 </span></code></pre></div>
 <p><strong>Expected Outcome</strong>: Cerebras should provide detailed analysis and comprehensive test cases.</p>
-<div class="admonition note">
-<p class="admonition-title">Coming Soon</p>
-<p>More advanced analysis exercises will be added to this section.</p>
-</div>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>To analyze and comment the given code, I will transfer this question to the Cerebras agent.
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>transfer_to_agent(&#39;cerebras_agent&#39;);
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>This code defines a Person class with a constructor that takes a name parameter and a greet method that logs a greeting message with the person&#39;s name. It also creates a new Person instance called myPerson and calls the greet method on it.
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>The code is well-structured and follows good practices for defining classes in JavaScript. However, it would be more efficient to use an arrow function for the greet method to avoid creating a new function every time an instance of the Person class is created.
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>Here&#39;s the updated code:
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>class Person {
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a>constructor(name) {
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a>  this.name = name;
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a>}
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a>greet = () =&gt; {
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a>  console.log(`Hello, ${this.name}!`);
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a>}
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a>}
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a>
+</span><span id="__span-2-20"><a id="__codelineno-2-20" name="__codelineno-2-20" href="#__codelineno-2-20"></a>// Create a new person instance
+</span><span id="__span-2-21"><a id="__codelineno-2-21" name="__codelineno-2-21" href="#__codelineno-2-21"></a>const myPerson = new Person(&#39;John&#39;);
+</span><span id="__span-2-22"><a id="__codelineno-2-22" name="__codelineno-2-22" href="#__codelineno-2-22"></a>
+</span><span id="__span-2-23"><a id="__codelineno-2-23" name="__codelineno-2-23" href="#__codelineno-2-23"></a>// Call the greet method
+</span><span id="__span-2-24"><a id="__codelineno-2-24" name="__codelineno-2-24" href="#__codelineno-2-24"></a>myPerson.greet(); // Output: Hello, John!
+</span><span id="__span-2-25"><a id="__codelineno-2-25" name="__codelineno-2-25" href="#__codelineno-2-25"></a>This updated code uses an arrow function for the greet method, which improves performance by avoiding the creation of a new function every time an instance of the Person class is created.
+</span></code></pre></div>
 
 
 
