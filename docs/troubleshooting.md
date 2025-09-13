@@ -32,10 +32,8 @@ Monitor system health:
 # Check container status
 docker compose ps
 
-# View logs for specific services
-docker compose logs devduck
-docker compose logs local-agent
-docker compose logs cerebras-agent
+# View logs 
+docker compose logs 
 
 # Check resource usage
 docker stats
