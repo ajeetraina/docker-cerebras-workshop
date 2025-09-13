@@ -129,9 +129,6 @@ Contiue your conversation with Cerebras Agent:
 Can you generate the tests
 ```
 
-
-
-
 ```
 To generate tests for the Person class, I will create a test file called person_test.js and write some test cases using the describe and it functions from the Mocha testing framework.
 
@@ -179,21 +176,6 @@ mocha person_test.js
 This will run the tests and display the results. If the tests pass, it means the Person class is working as expected. If any test fails, you can investigate the issue and fix the code accordingly.
 ```
 
-### 
-
-```
-I want to speak with Local Agent
-```
-
-**Expected Outcome**:
-
-
-```
- To speak with the Local Agent, I will transfer the question to the local_agent.
-
-transfer_to_agent('local_agent');
-This will hand off control to the Local Agent, which is more suitable for general development tasks and project coordination. The Local Agent will be able to help you with reading and understanding code, or reviewing code.
-```
 
 
 
