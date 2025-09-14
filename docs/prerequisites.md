@@ -55,6 +55,16 @@ docker model pull unsloth/qwen3-gguf:4B-UD-Q4_K_XL
 docker model pull hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m
 ```
 
+!!! tip "Why we chose these models"
+      These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency. 
+       
+       The smaller Qwen3-4B model serves as a fast coordinator that handles routing decisions and simple tasks, while the larger 30B model tackles complex reasoning and code generation when needed. 
+       This approach ensures users get immediate responses for basic interactions while still having access to powerful AI capabilities for demanding tasks. 
+       The technical optimizations make these models particularly suitable for containerized deployments. 
+       
+     Unsloth framework provides 2-5x speed improvements over standard implementations, while GGUF quantization reduces model sizes significantly (Q4 cuts size by ~75%) without major quality loss. The 4B model uses Q4_K_XL quantization for fast inference with extended context support, while the 30B variant uses Q5_K_M for better quality preservation on complex tasks.
+
+       This strategic model selection delivers the best of both worlds: lightning-fast coordination for user experience and heavyweight reasoning for quality outputs. Rather than running one large model constantly (expensive and slow) or one small model always (fast but limited), this tiered approach optimizes both cost and capability, making it ideal for production AI applications where both responsiveness and intelligence matter.
 
 
 ## API Requirements
