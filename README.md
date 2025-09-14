@@ -27,7 +27,7 @@ Clone the repo and follow the instructions to run this workshop inside a Docker 
 
 ```
 docker build -t devduck .
-docker run -p 8000:8000 devduck 
+docker run -p 8003:8000 devduck 
 ```
 
 
