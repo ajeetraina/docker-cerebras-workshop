@@ -6,19 +6,19 @@ Master the art of directing conversations to specific agents.
 
 Practice directing conversations to specific agents:
 
-1. Direct communication to Local Agent:
+- Direct communication to Local Agent:
 
 ```
 I want to speak with Local Agent
 ```
 
-2. Switch to Cerebras:
+- Switch to Cerebras:
 
 ```
 I want to speak with Cerebras
 ```
 
-3. Return to coordinator:
+- Return to coordinator:
 
 ```
 go back to devduck
