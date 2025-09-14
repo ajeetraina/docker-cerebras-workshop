@@ -1070,23 +1070,13 @@ Download the following models beforehand.</p>
 </span></code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Why we chose these models</p>
-<p>These models are selected for their balance of performance and resource requirements, making them suitable for a variety of AI tasks in this workshop.</p>
+<p>These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency. </p>
+<p>The smaller Qwen3-4B model serves as a fast coordinator that handles routing decisions and simple tasks, while the larger 30B model tackles complex reasoning and code generation when needed. 
+   This approach ensures users get immediate responses for basic interactions while still having access to powerful AI capabilities for demanding tasks. 
+   The technical optimizations make these models particularly suitable for containerized deployments. </p>
+<p>Unsloth framework provides 2-5x speed improvements over standard implementations, while GGUF quantization reduces model sizes significantly (Q4 cuts size by ~75%) without major quality loss. The 4B model uses Q4_K_XL quantization for fast inference with extended context support, while the 30B variant uses Q5_K_M for better quality preservation on complex tasks.</p>
+<p>This strategic model selection delivers the best of both worlds: lightning-fast coordination for user experience and heavyweight reasoning for quality outputs. Rather than running one large model constantly (expensive and slow) or one small model always (fast but limited), this tiered approach optimizes both cost and capability, making it ideal for production AI applications where both responsiveness and intelligence matter.</p>
 </div>
-<p>Unsloth is a framework that optimizes models for faster inference. It provides 2-5x speed improvements over standard implementations.
-Comes with optimized memory usage patterns.</p>
-<p>GGUF (GPT-Generated Unified Format) is the latest quantization standard. It provides better compression than older GGML formats.
-Improved compatibility across different hardware.</p>
-<p>Q4_K_XL Quantization Strategy:
-Q4 = 4-bit quantization (reduces model size by ~75%)
-K = K-quantization method (better quality preservation)
-XL = Extra Large context support for longer conversations</p>
-<p>hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m is a 30B model provides significantly more reasoning capability.
-Better for complex code analysis and generation. Higher quality outputs for demanding tasks</p>
-<p>┌─────────────────┐    ┌──────────────────┐
-│   Fast Router   │    │  Heavy Compute   │
-│   Qwen3-4B-Q4   │───▶│  Qwen3-30B-Q5   │
-│   Coordination  │    │  Complex Tasks   │
-└─────────────────┘    └──────────────────┘</p>
 <h2 id="api-requirements">API Requirements<a class="headerlink" href="#api-requirements" title="Permanent link">&para;</a></h2>
 <h3 id="cerebras-api-access">🧠 Cerebras API Access<a class="headerlink" href="#cerebras-api-access" title="Permanent link">&para;</a></h3>
 <p>You'll need a Cerebras API key to access advanced AI capabilities:</p>
