@@ -1,0 +1,65 @@
+apiVersion: gateway.docker.com/v1alpha1
+kind: MCPGatewayCatalog
+metadata:
+  name: devduck-workshop-catalog
+  description: MCP Gateway configuration for Docker DevDuck Multi-Agent Workshop
+spec:
+  mcpServers:
+    devduck-coordinator:
+      command: python
+      args: 
+        - "-m"
+        - "devduck.agent"
+      env:
+        CEREBRAS_API_KEY: ${CEREBRAS_API_KEY}
+        CEREBRAS_BASE_URL: ${CEREBRAS_BASE_URL}
+        CEREBRAS_CHAT_MODEL: ${CEREBRAS_CHAT_MODEL}
+      description: "DevDuck coordinator agent for intelligent request routing"
+      
+    local-nodejs-agent:
+      command: python
+      args:
+        - "-m"
+        - "devduck.sub_agents.localagent.agent"
+      env:
+        LOCAL_MODEL_NAME: ${LOCAL_MODEL_NAME:-llama-3.2-3b-instruct}
+      description: "Local Node.js development expert agent"
+      
+    cerebras-analysis-agent:
+      command: python
+      args:
+        - "-m"
+        - "devduck.sub_agents.cerebras.agent"
+      env:
+        CEREBRAS_API_KEY: ${CEREBRAS_API_KEY}
+        CEREBRAS_BASE_URL: ${CEREBRAS_BASE_URL}
+        CEREBRAS_CHAT_MODEL: ${CEREBRAS_CHAT_MODEL}
+      description: "Cerebras-powered advanced AI analysis agent"
+      
+  tools:
+    - name: code-generation
+      description: "Generate Node.js code snippets and examples"
+      servers: ["local-nodejs-agent", "cerebras-analysis-agent"]
+      
+    - name: code-analysis
+      description: "Analyze and explain existing code"
+      servers: ["cerebras-analysis-agent"]
+      
+    - name: routing-decision
+      description: "Intelligent request routing between agents"
+      servers: ["devduck-coordinator"]
+      
+    - name: project-planning
+      description: "Development project coordination and planning"
+      servers: ["devduck-coordinator", "cerebras-analysis-agent"]
+
+  routing:
+    strategy: intelligent
+    fallbackAgent: devduck-coordinator
+    rules:
+      - pattern: ".*code.*"
+        agent: local-nodejs-agent
+      - pattern: ".*analysis.*"
+        agent: cerebras-analysis-agent
+      - pattern: ".*complex.*"
+        agent: cerebras-analysis-agent
