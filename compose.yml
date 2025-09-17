@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  devduck-agent:
+    build:
+      context: ./agents
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - CEREBRAS_API_KEY=${CEREBRAS_API_KEY}
+      - CEREBRAS_BASE_URL=${CEREBRAS_BASE_URL:-https://api.cerebras.ai/v1}
+      - CEREBRAS_CHAT_MODEL=${CEREBRAS_CHAT_MODEL:-llama-3.1-70b}
+    volumes:
+      - ./agents:/app
+    networks:
+      - devduck-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  mcp-gateway:
+    image: docker/mcp-gateway:latest
+    volumes:
+      - ./mcp-gateway-catalog.yaml:/app/mcp-gateway-catalog.yaml:ro
+    networks:
+      - devduck-network
+    restart: unless-stopped
+    depends_on:
+      - devduck-agent
+
+networks:
+  devduck-network:
+    driver: bridge
+
+volumes:
+  agent-cache:
+    driver: local
