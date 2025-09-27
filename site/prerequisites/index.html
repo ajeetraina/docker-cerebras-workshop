@@ -495,17 +495,17 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#enable-docker-model-runner" class="md-nav__link">
     <span class="md-ellipsis">
       Enable Docker Model Runner
     </span>
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1048,7 +1048,7 @@
 <p>For Docker Engine on Linux or Docker Desktop on Windows:</p>
 <ul>
 <li>Ensure GPU support is enabled</li>
-<li>Install necessary GPU drivers  </li>
+<li>Install necessary GPU drivers</li>
 <li>Verify <a href="https://docs.docker.com/ai/model-runner/">Docker Model Runner requirements</a></li>
 </ul>
 </div>
@@ -1062,20 +1062,16 @@
 </div>
 </div>
 </div>
-<h2 id="enable-docker-model-runner">Enable Docker Model Runner<a class="headerlink" href="#enable-docker-model-runner" title="Permanent link">&para;</a></h2>
-<p>Ensure that you've enabled Docker Model Runner using Docker Dashboard &gt; Settings &gt; AI &gt; Model Runner.
-Download the following models beforehand.</p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker model pull unsloth/qwen3-gguf:4B-UD-Q4_K_XL
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker model pull hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m
+<h3 id="enable-docker-model-runner">Enable Docker Model Runner<a class="headerlink" href="#enable-docker-model-runner" title="Permanent link">&para;</a></h3>
+<p>Ensure that you've enabled Docker Model Runner using Docker Dashboard &gt; Settings &gt; AI &gt; Model Runner. Download the following models beforehand.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker model pull hf.co/menlo/jan-nano-gguf:q4_k_m
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker model pull hf.co/menlo/lucy-gguf:q8_0
 </span></code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Why we chose these models</p>
-<p>These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency. </p>
-<p>The smaller Qwen3-4B model serves as a fast coordinator that handles routing decisions and simple tasks, while the larger 30B model tackles complex reasoning and code generation when needed. 
-   This approach ensures users get immediate responses for basic interactions while still having access to powerful AI capabilities for demanding tasks. 
-   The technical optimizations make these models particularly suitable for containerized deployments. </p>
-<p>Unsloth framework provides 2-5x speed improvements over standard implementations, while GGUF quantization reduces model sizes significantly (Q4 cuts size by ~75%) without major quality loss. The 4B model uses Q4_K_XL quantization for fast inference with extended context support, while the 30B variant uses Q5_K_M for better quality preservation on complex tasks.</p>
-<p>This strategic model selection delivers the best of both worlds: lightning-fast coordination for user experience and heavyweight reasoning for quality outputs. Rather than running one large model constantly (expensive and slow) or one small model always (fast but limited), this tiered approach optimizes both cost and capability, making it ideal for production AI applications where both responsiveness and intelligence matter.</p>
+<p class="admonition-title">Why we choose these models</p>
+<p>These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency.</p>
+<p>Jan-Nano is specifically designed and optimized to work seamlessly with Model Context Protocol (MCP) servers, enabling efficient   integration with various research tools and data sources JanJan. This is perfect for a coordinator that needs to route requests to different agents and tools. Routing &amp; Orchestration Focus: The model excels at routing tasks, with MCP-agent providing router implementations including EmbeddingRouter for classification and Intent Classifier patterns that identify the most relevant categories for routing</p>
+<p>Lucy is an ideal choice for your Local Agent because its 1.7B parameter size strikes the perfect balance between capability and efficiency for local execution on consumer hardware. Built on the same Qwen3 architecture as Jan-Nano, Lucy ensures seamless compatibility within your agent ecosystem while being specifically optimized for conversational development tasks and code generation. Its compact size means lightning-fast response times for the quick Node.js queries, code explanations, and general development tasks that form the bulk of day-to-day programming work, while consuming minimal system resources. This allows Lucy to handle the high-frequency, low-complexity requests efficiently, leaving Jan-Nano free to focus on coordination decisions and Cerebras to tackle the truly complex computational challenges. The q8_0 quantization maintains excellent quality while ensuring Lucy can run smoothly locally, making it the perfect "first responder" agent that can instantly provide code snippets, explain concepts, and handle routine development questions without the latency or cost of cloud API calls.</p>
 </div>
 <h2 id="api-requirements">API Requirements<a class="headerlink" href="#api-requirements" title="Permanent link">&para;</a></h2>
 <h3 id="cerebras-api-access">🧠 Cerebras API Access<a class="headerlink" href="#cerebras-api-access" title="Permanent link">&para;</a></h3>
@@ -1095,7 +1091,7 @@ Download the following models beforehand.</p>
 <h3 id="required-knowledge">✅ Required Knowledge<a class="headerlink" href="#required-knowledge" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Basic Docker understanding</strong>: Containers, images, and basic commands</li>
-<li><strong>Command line familiarity</strong>: Running terminal/cmd commands  </li>
+<li><strong>Command line familiarity</strong>: Running terminal/cmd commands</li>
 <li><strong>Web browser usage</strong>: Accessing web interfaces and APIs</li>
 </ul>
 <h3 id="helpful-but-not-required">💡 Helpful (But Not Required)<a class="headerlink" href="#helpful-but-not-required" title="Permanent link">&para;</a></h3>
@@ -1119,7 +1115,7 @@ Download the following models beforehand.</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1"># Check Docker version</span>
 </span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>docker<span class="w"> </span>--version
 </span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check Docker Compose version  </span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="c1"># Check Docker Compose version</span>
 </span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>docker<span class="w"> </span>compose<span class="w"> </span>version
 </span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>
 </span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="c1"># Test Docker functionality</span>
