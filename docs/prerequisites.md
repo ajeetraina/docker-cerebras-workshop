@@ -32,40 +32,33 @@ Before starting this workshop, ensure you have the following requirements met. T
 
 === "Linux / Windows"
     For Docker Engine on Linux or Docker Desktop on Windows:
-    
+
     - Ensure GPU support is enabled
-    - Install necessary GPU drivers  
+    - Install necessary GPU drivers
     - Verify [Docker Model Runner requirements](https://docs.docker.com/ai/model-runner/)
 
 === "macOS"
     Docker Desktop on macOS with Apple Silicon:
-    
+
     - Built-in GPU acceleration support
     - Optimized for M1/M2/M3 chips
     - No additional driver setup required
 
+### Enable Docker Model Runner
 
-## Enable Docker Model Runner
-
-Ensure that you've enabled Docker Model Runner using Docker Dashboard > Settings > AI > Model Runner.
-Download the following models beforehand.
+Ensure that you've enabled Docker Model Runner using Docker Dashboard > Settings > AI > Model Runner. Download the following models beforehand.
 
 ```
-docker model pull unsloth/qwen3-gguf:4B-UD-Q4_K_XL
-docker model pull hf.co/unsloth/qwen3-30b-a3b-instruct-2507-gguf:q5_k_m
+docker model pull hf.co/menlo/jan-nano-gguf:q4_k_m
+docker model pull hf.co/menlo/lucy-gguf:q8_0
 ```
 
-!!! tip "Why we chose these models"
-      These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency. 
-       
-       The smaller Qwen3-4B model serves as a fast coordinator that handles routing decisions and simple tasks, while the larger 30B model tackles complex reasoning and code generation when needed. 
-       This approach ensures users get immediate responses for basic interactions while still having access to powerful AI capabilities for demanding tasks. 
-       The technical optimizations make these models particularly suitable for containerized deployments. 
-       
-     Unsloth framework provides 2-5x speed improvements over standard implementations, while GGUF quantization reduces model sizes significantly (Q4 cuts size by ~75%) without major quality loss. The 4B model uses Q4_K_XL quantization for fast inference with extended context support, while the 30B variant uses Q5_K_M for better quality preservation on complex tasks.
+!!! tip "Why we choose these models"
+    These models implement a tiered intelligence architecture designed for optimal performance and resource efficiency.
 
-       This strategic model selection delivers the best of both worlds: lightning-fast coordination for user experience and heavyweight reasoning for quality outputs. Rather than running one large model constantly (expensive and slow) or one small model always (fast but limited), this tiered approach optimizes both cost and capability, making it ideal for production AI applications where both responsiveness and intelligence matter.
+    Jan-Nano is specifically designed and optimized to work seamlessly with Model Context Protocol (MCP) servers, enabling efficient   integration with various research tools and data sources JanJan. This is perfect for a coordinator that needs to route requests to different agents and tools. Routing & Orchestration Focus: The model excels at routing tasks, with MCP-agent providing router implementations including EmbeddingRouter for classification and Intent Classifier patterns that identify the most relevant categories for routing
 
+    Lucy is an ideal choice for your Local Agent because its 1.7B parameter size strikes the perfect balance between capability and efficiency for local execution on consumer hardware. Built on the same Qwen3 architecture as Jan-Nano, Lucy ensures seamless compatibility within your agent ecosystem while being specifically optimized for conversational development tasks and code generation. Its compact size means lightning-fast response times for the quick Node.js queries, code explanations, and general development tasks that form the bulk of day-to-day programming work, while consuming minimal system resources. This allows Lucy to handle the high-frequency, low-complexity requests efficiently, leaving Jan-Nano free to focus on coordination decisions and Cerebras to tackle the truly complex computational challenges. The q8_0 quantization maintains excellent quality while ensuring Lucy can run smoothly locally, making it the perfect "first responder" agent that can instantly provide code snippets, explain concepts, and handle routine development questions without the latency or cost of cloud API calls.
 
 ## API Requirements
 
@@ -87,7 +80,7 @@ You'll need a Cerebras API key to access advanced AI capabilities:
 ### ✅ Required Knowledge
 
 - **Basic Docker understanding**: Containers, images, and basic commands
-- **Command line familiarity**: Running terminal/cmd commands  
+- **Command line familiarity**: Running terminal/cmd commands
 - **Web browser usage**: Accessing web interfaces and APIs
 
 ### 💡 Helpful (But Not Required)
@@ -114,7 +107,7 @@ Run these commands to verify your setup:
 # Check Docker version
 docker --version
 
-# Check Docker Compose version  
+# Check Docker Compose version
 docker compose version
 
 # Test Docker functionality
