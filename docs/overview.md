@@ -11,14 +11,14 @@ The Docker Cerebras demo showcases a sophisticated multi-agent system designed f
 
 #### 🦆 DevDuck - The Coordinator
 
-- **Model**: Qwen3 (unsloth/qwen3-gguf:4B-UD-Q4_K_XL)
+- **Model**: Jan-Nano (hf.co/menlo/jan-nano-gguf:q4_k_m)
 - **Role**: Main development assistant and project coordinator
 - **Capabilities**: Routes requests to appropriate sub-agents based on user needs
 - **Function**: Acts as the central hub for user interactions
 
 #### 💻 Local Agent - Development Expert
 
-- **Model**: Qwen2.5 (ai/qwen2.5:latest)
+- **Model**: Lucy (hf.co/menlo/lucy-gguf:q8_0)
 - **Role**: General development tasks and project coordination
 - **Specialization**: Node.js programming expert for understanding code, explaining concepts, and generating code snippets
 - **Function**: Handles standard development queries and code generation
