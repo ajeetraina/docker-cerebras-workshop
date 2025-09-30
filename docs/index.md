@@ -51,13 +51,26 @@ Throughout this workshop, you'll work with practical Node.js development assista
 The source code for this workshop is available at [https://github.com/dockersamples/docker-cerebras-demo](https://github.com/dockersamples/docker-cerebras-demo)
 
 
-## Run this workshop in a Docker container
+## Run this workshop in a Labspace
 
-Clone [this](https://github.com/dockersamples/docker-cerebras-workshop) repo and run the following command: 
+### Enable Docker Extension
+
+- Install Docker Desktop
+- Enable Docker Extension (Settings > Extension > Enable Docker Extension
+- Don't forget to De-select "Allow only extension distributed through the Docker Marketplace"
+- Click "Apply"
+
+### Install Labspace Docker Extension
+
+- Run the following command to install the labspace extension
 
 ```
-docker build -t devduck .
-docker run -p 8002:8000 devduck
+docker extension install dockersamples/labspace-extension
 ```
 
-Now you can access the workshop at [http://localhost:8002](http://0.0.0.0:8002)
+- Click on "Add Labspace"
+- Supply your preferred title and the following location to bring up the extension
+
+```
+dockersamples/labspace-devduck
+```
