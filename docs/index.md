@@ -48,7 +48,7 @@ Throughout this workshop, you'll work with practical Node.js development assista
 
 ## GitHub Sources
 
-The source code for this workshop is available at [https://github.com/dockersamples/docker-cerebras-demo](https://github.com/dockersamples/docker-cerebras-demo)
+The source code for this project is available at [https://github.com/dockersamples/docker-cerebras-demo](https://github.com/dockersamples/docker-cerebras-demo)
 
 
 ## Run this workshop in a Labspace

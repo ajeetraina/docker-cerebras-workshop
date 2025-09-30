@@ -514,11 +514,35 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#run-this-workshop-in-a-docker-container" class="md-nav__link">
+  <a href="#run-this-workshop-in-a-labspace" class="md-nav__link">
     <span class="md-ellipsis">
-      Run this workshop in a Docker container
+      Run this workshop in a Labspace
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Run this workshop in a Labspace">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#enable-docker-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Enable Docker Extension
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-labspace-docker-extension" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Labspace Docker Extension
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1011,13 +1035,27 @@
 <p>Make sure you have reviewed the prerequisites and have your development environment ready. The next section will guide you through the necessary setup requirements.</p>
 </div>
 <h2 id="github-sources">GitHub Sources<a class="headerlink" href="#github-sources" title="Permanent link">&para;</a></h2>
-<p>The source code for this workshop is available at <a href="https://github.com/dockersamples/docker-cerebras-demo">https://github.com/dockersamples/docker-cerebras-demo</a></p>
-<h2 id="run-this-workshop-in-a-docker-container">Run this workshop in a Docker container<a class="headerlink" href="#run-this-workshop-in-a-docker-container" title="Permanent link">&para;</a></h2>
-<p>Clone <a href="https://github.com/dockersamples/docker-cerebras-workshop">this</a> repo and run the following command: </p>
-<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker build -t devduck .
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>docker run -p 8002:8000 devduck
+<p>The source code for this project is available at <a href="https://github.com/dockersamples/docker-cerebras-demo">https://github.com/dockersamples/docker-cerebras-demo</a></p>
+<h2 id="run-this-workshop-in-a-labspace">Run this workshop in a Labspace<a class="headerlink" href="#run-this-workshop-in-a-labspace" title="Permanent link">&para;</a></h2>
+<h3 id="enable-docker-extension">Enable Docker Extension<a class="headerlink" href="#enable-docker-extension" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Install Docker Desktop</li>
+<li>Enable Docker Extension (Settings &gt; Extension &gt; Enable Docker Extension</li>
+<li>Don't forget to De-select "Allow only extension distributed through the Docker Marketplace"</li>
+<li>Click "Apply"</li>
+</ul>
+<h3 id="install-labspace-docker-extension">Install Labspace Docker Extension<a class="headerlink" href="#install-labspace-docker-extension" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Run the following command to install the labspace extension</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>docker extension install dockersamples/labspace-extension
 </span></code></pre></div>
-<p>Now you can access the workshop at <a href="http://0.0.0.0:8002">http://localhost:8002</a></p>
+<ul>
+<li>Click on "Add Labspace"</li>
+<li>Supply your preferred title and the following location to bring up the extension</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>dockersamples/labspace-devduck
+</span></code></pre></div>
 
 
 
